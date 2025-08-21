@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2A2A2A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA000;
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #E8E8E8;
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply border-background-tertiary;
+  }
+  
+  body {
+    @apply bg-background-primary text-foreground-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-accent-gold hover:bg-accent-gold-dark text-background-primary font-medium px-4 py-2 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-background-secondary hover:bg-background-tertiary text-foreground-primary border border-foreground-muted font-medium px-4 py-2 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50;
+  }
+  
+  .card {
+    @apply bg-background-secondary border border-background-tertiary rounded-lg p-6 shadow-lg;
+  }
+  
+  .input-field {
+    @apply bg-background-tertiary border border-foreground-muted text-foreground-primary px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent transition-colors duration-200;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-background-tertiary rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-success-primary to-success-light transition-all duration-300 ease-out;
+  }
+  
+  .xp-bar {
+    @apply relative overflow-hidden rounded-full h-3 bg-background-tertiary;
+  }
+  
+  .xp-fill {
+    @apply h-full bg-gradient-to-r from-accent-gold to-accent-gold-dark transition-all duration-500 ease-out;
+  }
+  
+  .achievement-badge {
+    @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-gold text-background-primary;
+  }
+  
+  .skill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border;
+  }
+  
+  .code-block {
+    @apply bg-background-tertiary border border-foreground-muted rounded-lg p-4 font-mono text-sm overflow-x-auto;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-gold to-accent-gold-dark bg-clip-text text-transparent;
+  }
+  
+  .glow-effect {
+    @apply shadow-lg shadow-accent-gold/20;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .animate-xp-gain {
+    animation: xpGain 0.8s ease-out;
+  }
+}
+
+/* Monaco Editor customization */
+.monaco-editor {
+  @apply rounded-lg overflow-hidden;
+}
+
+.monaco-editor .margin {
+  background-color: #1A1A1A !important;
+}
+
+.monaco-editor .monaco-editor-background {
+  background-color: #1A1A1A !important;
+}
+
+/* Game canvas styles */
+.game-canvas {
+  @apply rounded-lg shadow-2xl border border-background-tertiary;
+}
+
+/* Loading animations */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-accent-gold;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+}
