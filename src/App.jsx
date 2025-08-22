@@ -8,20 +8,21 @@ import Profile from './pages/Profile'
 import Leaderboard from './pages/Leaderboard'
 import Community from './pages/Community'
 import Settings from './pages/Settings'
-import Welcome from './pages/Welcome'
+import Landing from './pages/Landing'
 import GameWorld from './components/Game/GameWorld'
 
 function App() {
   const { isAuthenticated } = useSelector(state => state.auth)
 
   if (!isAuthenticated) {
-    return <Welcome />
+    return <Landing />
   }
 
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/landing" element={<Landing />} />
         <Route path="/challenges" element={<Challenges />} />
         <Route path="/game" element={<GameWorld />} />
         <Route path="/profile" element={<Profile />} />
