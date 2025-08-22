@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-canvas {
+    display: block;
+    background: #000;
+}
+
+#code-editor-panel {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 500px;
+    height: 600px;
+    background: rgba(30, 30, 30, 0.95);
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+    transition: all 0.3s ease;
+}
+
+#code-editor-panel.hidden {
+    display: none;
+}
+
+#editor-header {
+    padding: 15px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #4a90e2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#editor-header h3 {
+    color: #4a90e2;
+    margin: 0;
+    font-size: 18px;
+}
+
+#language-selector {
+    padding: 5px 10px;
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid #4a90e2;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #357abd;
+}
+
+#monaco-editor {
+    height: 350px;
+    border-bottom: 1px solid #4a90e2;
+}
+
+#output-panel {
+    padding: 15px;
+    height: 150px;
+    overflow-y: auto;
+}
+
+#output-panel h4 {
+    color: #4a90e2;
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+#code-output {
+    background: #1e1e1e;
+    color: #00ff00;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    white-space: pre-wrap;
+    margin: 0;
+}
