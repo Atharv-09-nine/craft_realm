@@ -1,0 +1,461 @@
+/* Adventure Gaming CSS with Dark Theme - Inspired by Codédx */
+:root {
+  --adventure-bg: #0f0f0f;
+  --adventure-dark: #000000;
+  --adventure-medium: #333333;
+  --adventure-light: #888888;
+  --adventure-accent: #4a4a4a;
+  --adventure-purple: #8b5cf6;
+  --adventure-blue: #3b82f6;
+  --adventure-green: #10b981;
+  --adventure-yellow: #fbbf24;
+  --adventure-red: #ef4444;
+  --adventure-card: #1f1f1f;
+  --adventure-card-hover: #2a2a2a;
+  --adventure-border: #444444;
+  --adventure-text: #e5e5e5;
+  --adventure-text-dim: #a1a1a1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  background: var(--adventure-bg);
+  color: var(--adventure-text);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+}
+
+/* Blur background overlay */
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 60% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 35%);
+  backdrop-filter: blur(1px);
+  z-index: 0;
+}
+
+/* Centered modal container */
+.intro-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Layout utilities */
+.retro-container {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.retro-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.retro-card:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Typography */
+.retro-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+.retro-nav-vertical {
+  margin-bottom: 2rem;
+}
+
+.retro-nav-btn-vertical {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  color: var(--adventure-text);
+  padding: 14px 18px;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-nav-btn-vertical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+.retro-nav-btn-vertical:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border-color: var(--adventure-purple);
+}
+
+.retro-nav-btn-vertical:hover::before {
+  left: 100%;
+}
+
+.retro-nav-btn-vertical.active {
+  background: linear-gradient(135deg, var(--adventure-purple), var(--adventure-blue));
+  color: white;
+  border-color: var(--adventure-purple);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+}
+
+/* Header Banner */
+.retro-header-banner {
+  background: linear-gradient(135deg, var(--adventure-card), var(--adventure-card-hover));
+  border: 2px solid var(--adventure-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-header-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Stat Cards */
+.retro-stat-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--adventure-purple), var(--adventure-blue), var(--adventure-green), var(--adventure-yellow));
+}
+
+.retro-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Language Cards */
+.retro-lang-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-lang-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(16, 185, 129, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.retro-lang-card:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  border-color: var(--adventure-green);
+}
+
+.retro-lang-card:hover::before {
+  opacity: 1;
+}
+
+/* Challenge Cards */
+.retro-challenge-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-challenge-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--adventure-yellow), var(--adventure-red));
+}
+
+.retro-challenge-card:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  border-color: var(--adventure-yellow);
+}
+
+/* Profile Cards */
+.retro-profile-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.retro-profile-card:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Progress Bars */
+.retro-progress-bar {
+  background: var(--adventure-medium);
+  border: 2px solid var(--adventure-border);
+  border-radius: 6px;
+  height: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.retro-progress-fill {
+  background: linear-gradient(90deg, var(--adventure-green), var(--adventure-blue));
+  height: 100%;
+  transition: width 0.5s ease;
+  position: relative;
+  border-radius: 4px;
+}
+
+.retro-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Achievement Cards */
+.retro-achievement-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.retro-achievement-card.earned {
+  background: linear-gradient(135deg, var(--adventure-card), var(--adventure-card-hover));
+  border-color: var(--adventure-green);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+}
+
+.retro-achievement-card.earned::before {
+  content: '✓';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: var(--adventure-green);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.retro-achievement-card.locked {
+  background: var(--adventure-medium);
+  border-color: var(--adventure-accent);
+  opacity: 0.5;
+}
+
+.retro-achievement-card:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Community Cards */
+.retro-community-card {
+  background: var(--adventure-card);
+  border: 2px solid var(--adventure-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.retro-community-card:hover {
+  background: var(--adventure-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.retro-leaderboard-item {
+  background: var(--adventure-medium);
+  border: 1px solid var(--adventure-border);
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.retro-leaderboard-item:hover {
+  background: var(--adventure-card-hover);
+  transform: translateX(4px);
+}
+
+.retro-guild-item {
+  background: var(--adventure-medium);
+  border: 1px solid var(--adventure-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-guild-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--adventure-blue), var(--adventure-green));
+}
+
+.retro-guild-item:hover {
+  background: var(--adventure-card-hover);
+  transform: translateX(6px);
+  border-color: var(--adventure-blue);
+}
+
+/* Buttons */
+.retro-btn {
+  background: linear-gradient(135deg, var(--adventure-purple), var(--adventure-blue));
+  border: 2px solid var(--adventure-purple);
+  color: white;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.retro-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.4);
+}
+
+.retro-btn:hover::before {
+  left: 100%;
+}
+
+.retro-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+/* Layout utilities */
+.max-w-4xl { max-width: 56rem; }
+.max-w-2xl { max-width: 42rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.p-8 { padding: 2rem; }
+.p-6 { padding: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.text-center { text-align: center; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.font-bold { font-weight: 700; }
+.min-h-screen { min-height: 100vh; }
+.grid { display: grid; }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gap-4 { gap: 1rem; }
